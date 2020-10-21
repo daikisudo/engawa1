@@ -1,0 +1,24 @@
+<h1>マイページ</h1>
+
+
+<div class="profile-container">
+
+<h3 class="profile-name"><%= @illustrator.illustrator_name %></h3>
+
+
+<h3 class="profile-name"><%= @illustrator.name %></h3>
+
+
+
+<%= attachment_image_tag @illustrator, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> 
+<% if @illustrator.id == current_illustrator.id %>
+    <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator)%></p>
+
+  
+<div class="withdrawl">
+    <%= link_to "退会はこちら", withdrawl_illustrator_path(@illustrator.id), method: :patch %>
+</div>
+<% end %>
+
+<br>
+取引管理

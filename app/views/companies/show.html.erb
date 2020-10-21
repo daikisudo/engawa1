@@ -1,0 +1,16 @@
+<h1>マイページ</h1>
+
+
+
+<%= @company.company_name %></h3>
+<%= @company.name %></h3>
+<%= attachment_image_tag @company, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> 
+<% if @company.id == current_company.id %>
+    <p><%= link_to "プロフィール編集", edit_company_path(@company)%></p>
+
+<div class="withdrawl">
+    <%= link_to "退会はこちら", withdrawl_company_path(@company.id), method: :patch %>
+</div>
+<% end %>
+
+  取引管理

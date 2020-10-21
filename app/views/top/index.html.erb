@@ -1,0 +1,37 @@
+<h1>Engawa</h1>
+
+<div>
+
+<% if illustrator_signed_in? %>
+  <%= current_illustrator.name %>
+  
+  <%= link_to "マイページ", illustrator_path(id: current_illustrator) %>
+
+  <%= link_to "ログアウト", destroy_illustrator_session_path ,:method => :delete %>
+
+
+<% elsif company_signed_in? %>
+
+ <%= current_company.name %>
+
+  <%= link_to "マイページ", company_path(id: current_company) %>
+
+ 
+  <%= link_to "ログアウト", destroy_company_session_path ,:method => :delete %>
+
+
+<% else %>
+  <h3>イラストレーターの方はこちら</h3>
+  <%= link_to "ログイン", new_illustrator_session_path %>
+  <%= link_to "新規登録", new_illustrator_registration_path %>
+  
+  <h3>企業の方はこちら</h3>
+  <%= link_to "ログイン", new_company_session_path %>
+  <%= link_to "新規登録", new_company_registration_path %>
+
+  <% end %>
+</div>
+
+
+<br>
+イラストレータの投稿を表示
