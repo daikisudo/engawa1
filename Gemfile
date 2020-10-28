@@ -72,3 +72,12 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem "haml-rails", "~> 2.0"
+
+gem 'payjp'
+
+gem 'dotenv-rails'
+
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
