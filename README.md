@@ -1,24 +1,36 @@
-# README
+# Engawa
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
 
-Things you may want to cover:
+イラストレーターを探したい企業と、フリーランスとして仕事が欲しいイラストレーターをマッチングさせるアプリ
 
-* Ruby version
+イラストレーターの各種SNSやホームページを掲載し、仕事が欲しい人のみが登録するサイトという事でそれぞれのオーダー内容の剥離を防ぐことができる。
+また、過去に請け負った案件の料金を表示することで近年ありがちな相場より安く請け負ってしまう事故を防ぐことができる。
+イラストレーター側が登録をし、企業側が能動的に検索をかけて依頼をするシステム
 
-* System dependencies
+実装機能:金額設定、購入機能
 
-* Configuration
+### サイトテーマ
+企業とイラストレータのミスマッチを防ぐ
 
-* Database creation
+### テーマを選んだ理由
+知人のイラストレータから現状起きている問題を聞いたため
 
-* Database initialization
+### ターゲットユーザ
+仕事をしたいが、仕事が回ってこないイラストレータ
+仕事をイラストレータに振りたいが、SNSなどで活動している人が仕事を募集しているかわからないので、仕事をしたいイラストレータを探している企業
 
-* How to run the test suite
+### 主な利用シーン
+ビジネス
 
-* Services (job queues, cache servers, search engines, etc.)
+## 設計書
 
-* Deployment instructions
+### 機能一覧
+https://docs.google.com/spreadsheets/d/1etNIu5gBIo37EgbyHgskgIUKOpBnZKjp9HWQi2zKzOU/edit#gid=0
 
-* ...
+## 開発環境
+- OS：macOS
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- 仮想環境：Vagrant 
