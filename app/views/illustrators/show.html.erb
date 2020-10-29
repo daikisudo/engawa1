@@ -1,24 +1,41 @@
 <h1>マイページ</h1>
 
-
 <div class="profile-container">
-
 <h3 class="profile-name"><%= @illustrator.illustrator_name %></h3>
-
-
 <h3 class="profile-name"><%= @illustrator.name %></h3>
 
-
-
-<%= attachment_image_tag @illustrator, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> 
-<% if @illustrator.id == current_illustrator.id %>
-    <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator)%></p>
-
-  
-<div class="withdrawl">
-    <%= link_to "退会はこちら", withdrawl_illustrator_path(@illustrator.id), method: :patch %>
 </div>
-<% end %>
 
-<br>
-取引管理
+<div>
+<%= attachment_image_tag @illustrator, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'80x80' %> 
+</div>
+
+
+<% if illustrator_signed_in? && current_illustrator.id %>
+    <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator), class: 'btn btn-primary'%></p>
+    <p><%= link_to "新規依頼作成", new_order_path, class: 'btn btn-success' %></p>
+    
+    
+     <% @illustrator.orders.each do |order| %>
+     <%= attachment_image_tag order, :image, :fill, 400, 300, fallback: "no_image.jpg", size:'200x200'  %>
+    
+     <%= link_to "詳細", order_path(order), class: 'btn btn-info' %>
+     <%= link_to "編集", edit_order_path(order), class: 'btn btn-primary'%>
+     <%= link_to "削除", order_path(order), method: :delete, class: 'btn btn-danger'%>
+        
+  <% end %>
+  <br>
+  <br>
+  <div>
+    <%= link_to "退会はこちら", withdrawl_illustrator_path(@illustrator.id), method: :patch, class: 'btn btn-danger' %>
+    <p><%= link_to "TOP", root_path, class: 'btn btn-default' %></p>
+   </div>
+
+  <% elsif company_signed_in? && current_company.id%>
+
+     <%= link_to "TOP", root_path, class: 'btn btn-default' %>
+       依頼を申し込む
+  <% else %>
+     <%= link_to "TOP", root_path, class: 'btn btn-default' %>
+
+<% end %>

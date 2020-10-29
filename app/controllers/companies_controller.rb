@@ -1,22 +1,22 @@
 class CompaniesController < ApplicationController
- def show
+def show
   	@company = Company.find(params[:id])
-  end
+end
 
 def edit
 	@company = Company.find(params[:id])
-  end
+end
 
- def update
+def update
  	@company = Company.find(params[:id])
     @company.update(company_params)
     redirect_to company_path(@company.id)
-  end
+end
 
-   def destroy
+def destroy
     reset_session
     redirect_to root_path
-  end
+end
 
 def check
   @company = Company.find(params[:id])
@@ -32,7 +32,7 @@ def withdrawl
   redirect_to root_path
 end
 
-  private
+private
   def company_params
   	params.require(:company).permit(:name, :profile_image, :company_name, :is_valid)
   end

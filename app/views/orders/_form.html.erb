@@ -1,0 +1,52 @@
+<%= form_with(model: order, local: true) do |form| %>
+<table>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field pt-4 pb-3">
+    <%= form.label :タイトル %>
+    <br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :"金額(50000円以上を設定)" %>
+    <br>
+    <%= form.text_field :amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :本文 %>
+    <br>
+    <%= form.text_area :caption %>
+  </div>
+
+<div>
+  <%= form_for(@order, url: orders_path) do |f| %>
+</div>
+
+<div>
+ <%= form.attachment_field :image %>
+</div>
+
+<div>
+  <%= form.hidden_field :illustrator_id, :value => current_illustrator.id %>
+</div>
+<% end %>
+  <br>
+  <div class="actions">
+    <%= form.submit "保存", class: "btn btn-primary"%>
+
+    
+  </div>
+</table>
+<% end %>

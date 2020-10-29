@@ -1,25 +1,24 @@
 class IllustratorsController < ApplicationController
 
-
-
+  
 def show
   	@illustrator = Illustrator.find(params[:id])
-  end
+end
 
 def edit
 	@illustrator = Illustrator.find(params[:id])
-  end
+end
 
- def update
+def update
  	@illustrator = Illustrator.find(params[:id])
     @illustrator.update(illustrator_params)
     redirect_to illustrator_path(@illustrator.id)
-  end
+end
 
-  def destroy
+def destroy
     reset_session
     redirect_to root_path
-  end
+end
   
 def check
   @illustrator = Illustrator.find(params[:id])
@@ -34,6 +33,8 @@ def withdrawl
 
   redirect_to root_path
 end
+
+
 
 private
   def illustrator_params

@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<div>
+<p>
+  <strong>タイトル:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>金額:</strong>
+  <%= @order.amount %>
+</p>
+
+<p>
+  <strong>本文:</strong>
+  <%= @order.caption %>
+</p>
+
+</div>
+
+
+<% if illustrator_signed_in? && current_illustrator.id == @order.illustrator_id %>
+
+<%= link_to 'トップページ', root_path %>|
+<%= link_to '編集', edit_order_path(@order) %> |
+<%= link_to '戻る', illustrator_path(id: current_illustrator) %>
+
+<% elsif company_signed_in? %>
+
+<p> 依頼を申し込む </p>
+
+<%= form_with local: true, url: orders_pay_path do |form| %>
+  金額：<%= form.text_field :amount %>
+  <script
+    type="text/javascript"
+    src="https://checkout.pay.jp"
+    class="payjp-button"
+    data-key="<%= ENV["PAYJP_PUBLIC_KEY"] %>">
+  </script>
+<% end %>
+
+<%= link_to 'トップページ', root_path %>
+
+<% elsif illustrator_signed_in? %>
+
+<% else %>
+<%= link_to 'ログインして依頼を申し込む', new_illustrator_registration_path %>
+<% end %>

@@ -10,19 +10,19 @@
 
   <div class="field">
     <%= f.label "企業名"%><br />
-    <%= f.text_field :company_name, autofocus: true, autocomplete:"illustrator_name" %>
+    <%= f.text_field :company_name, autofocus: true, autocomplete:"company_name" %>
   </div>
 
   <div class="field">
     <%= f.label "担当者名"%><br />
-    <%= f.text_field :name, autofocus: true, autocomplete:"illustrator_name" %>
+    <%= f.text_field :name, autofocus: true, autocomplete:"name" %>
   </div>
 
-
+  
   <div class="field">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> ６文字以上)</em>
+    <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>

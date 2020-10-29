@@ -1,37 +1,86 @@
-<h1>Engawa</h1>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+<a class="navbar-brand" href="#">Engawa</a>
+</div>
+<div class="collapse navbar-collapse" id="navigation">
+  <% if illustrator_signed_in? %>
+  <br>
+  <br>
+  <div>
+  <h4><%= current_illustrator.illustrator_name %>でログイン中</h4>
+  </div>
+
+  <% elsif company_signed_in? %>
+<div>
+
+<h4><%= current_company.company_name %>でログイン中</h4>
+  </div>
+  <% else %>
+  <% end %>
+    </div>
+  </div>
+</div>
+
 
 <div>
 
 <% if illustrator_signed_in? %>
-  <%= current_illustrator.name %>
-  
-  <%= link_to "マイページ", illustrator_path(id: current_illustrator) %>
 
-  <%= link_to "ログアウト", destroy_illustrator_session_path ,:method => :delete %>
+  <% current_illustrator.name %>
+
+  <%= link_to "マイページ", illustrator_path(id: current_illustrator), class: 'btn btn-primary' %>
+
+  <%= link_to "ログアウト", destroy_illustrator_session_path ,:method => :delete, class: 'btn btn-danger' %>
 
 
 <% elsif company_signed_in? %>
 
- <%= current_company.name %>
+  <% current_company.company_name %>
 
-  <%= link_to "マイページ", company_path(id: current_company) %>
+  <%= link_to "マイページ", company_path(id: current_company), class: 'btn btn-primary' %>
 
  
-  <%= link_to "ログアウト", destroy_company_session_path ,:method => :delete %>
+  <%= link_to "ログアウト", destroy_company_session_path ,:method => :delete,:method => :delete, class: 'btn btn-danger' %>
 
 
 <% else %>
-  <h3>イラストレーターの方はこちら</h3>
-  <%= link_to "ログイン", new_illustrator_session_path %>
-  <%= link_to "新規登録", new_illustrator_registration_path %>
+  <h5>イラストレーターの方は<%= link_to "こちら", new_illustrator_session_path %></h5>
   
-  <h3>企業の方はこちら</h3>
-  <%= link_to "ログイン", new_company_session_path %>
-  <%= link_to "新規登録", new_company_registration_path %>
+  <h5>企業の方は<%= link_to "こちら", new_company_session_path %></h5>
 
-  <% end %>
+<% end %>
+</div>
+<br>
+</nav>
+</body>
+
+<div>
+
+
+
+
+
+<% @orders.each do |order| %>
+<div class="list-box">
+<%= link_to order_path(order) do %>
+<%= attachment_image_tag order, :image, :fill, 200, 250, fallback: "no_image.jpg", size:'200x250' %>
+
+<div class="list-commit">
+    <span class="list-body1"><%= order.name %></span>|
+    <span class="list-body2"> <%= order.illustrator.illustrator_name %></span>|
+
+    <span class="list-body3"><%= order.amount %>円</span>
+  </div>
+  
 </div>
 
+<% end %>
+<% end %>
 
-<br>
-イラストレータの投稿を表示

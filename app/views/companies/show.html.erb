@@ -1,16 +1,20 @@
 <h1>マイページ</h1>
 
+<div class="profile-container">
+<h3 class="profile-name"><%= @company.company_name %></h3>
+<h3 class="profile-name"><%= @company.name %></h3>
 
+</div>
 
-<%= @company.company_name %></h3>
-<%= @company.name %></h3>
-<%= attachment_image_tag @company, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %> 
+<div>
+<%= attachment_image_tag @company, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'80x80' %> 
+</div>
+
 <% if @company.id == current_company.id %>
-    <p><%= link_to "プロフィール編集", edit_company_path(@company)%></p>
-
+    <p><%= link_to "プロフィール編集", edit_company_path(@company), class: 'btn btn-primary' %></p>
+   
 <div class="withdrawl">
-    <%= link_to "退会はこちら", withdrawl_company_path(@company.id), method: :patch %>
+    <%= link_to "退会はこちら", withdrawl_company_path(@company.id), method: :patch, class: 'btn btn-danger' %>
+     <p><%= link_to "TOP", root_path, class: 'btn btn-default' %></p>
 </div>
 <% end %>
-
-  取引管理
