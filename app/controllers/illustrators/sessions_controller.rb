@@ -7,4 +7,6 @@ protected
     if illustrator
       if (illustrator.valid_password?(params[:illustrator][:password]) && (illustrator.active_for_authentication? == true))
         redirect_to new_illustrator_session_path
+    end
+  end
 end
