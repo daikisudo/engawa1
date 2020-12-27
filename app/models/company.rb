@@ -6,7 +6,11 @@ class Company < ApplicationRecord
  attachment :profile_image
  enum is_valid: { Available: true, Invalid: false }
 
+ validates :email, presence: true
+ validates :name, presence: true
+ validates :company_name, presence: true
+
 def active_for_authentication?
   super && (self.is_valid == "Available")
 end
-end
+  end

@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-    @orders = Illustrator.where(activated: true).paginate(page: params[:page]).search(params[:search])
+    # @orders = Illustrator.where(activated: true).paginate(page: params[:page]).search(params[:search])
   end
 
   # GET /orders/1

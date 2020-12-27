@@ -1,12 +1,20 @@
-<div>
-  <div class="col-md- offset-md-4">
-  	<h2 class="text-center pt-5">新規依頼</h2>
+<section class="slice sct-color-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
 
-     <%= render 'form', order: @order %>
+
+<div class="row">
+          <div class="col-md-6 col-md-offset-3 post_image_form">
+            <div class="section-title-wrapper style-1 v1">  
+
+  	<h2 class="text-center pt-5">新規依頼</h2>
+    
+
+
+    <%= render 'form', order: @order %>
      
-     <div class="test-left">
-     <button type="button" class="btn btn-outline-secondary">
-     <%= link_to 'TOP', root_path %>
- </button>
-  </div>
-</div>
+    
+     
+    <%= link_to 'トップページに戻る', root_path %>
+    

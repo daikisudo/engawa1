@@ -1,10 +1,34 @@
+
+
+<section class="slice sct-color-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+
+<div class="row">
+          <div class="col-md-6 col-md-offset-3 post_image_form">
+            <div class="section-title-wrapper style-1 v1">  
+
+<div class="text-center pt-5">
+
+
+
 <h2>ログイン</h2>
+    
+
+
+<br>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    
   </div>
+
+
+  <br>
 
   <div class="field">
     <%= f.label :パスワード %><br />
@@ -18,9 +42,16 @@
     </div>
   <% end %>
 
+<br>
+
   <div class="actions">
     <%= f.submit "ログイン" %>
-  </div>
-<% end %>
+    </div>
+  
+
+  <% end %>
+<br>
 
 <%= render "illustrators/shared/links" %>
+<br>
+<%= link_to 'トップページに戻る', root_path %>

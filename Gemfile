@@ -78,6 +78,6 @@ gem "haml-rails", "~> 2.0"
 gem 'payjp'
 
 gem 'dotenv-rails'
-
+gem 'rails-i18n'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'

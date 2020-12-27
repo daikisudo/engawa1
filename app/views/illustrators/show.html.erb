@@ -1,9 +1,7 @@
 <h1>マイページ</h1>
 
 <div class="profile-container">
-<h3 class="profile-name"><%= @illustrator.illustrator_name %></h3>
-<h3 class="profile-name"><%= @illustrator.name %></h3>
-
+<h3 class="profile-name"><%= @illustrator.illustrator_name %>様</h3>
 </div>
 
 <div>
@@ -12,18 +10,22 @@
 
 
 <% if illustrator_signed_in? && current_illustrator.id %>
+   
     <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator), class: 'btn btn-primary'%></p>
     <p><%= link_to "新規依頼作成", new_order_path, class: 'btn btn-success' %></p>
-    
-    
+    <p><%= link_to "売上管理(PAY.JPへ移動)", 'https://pay.jp/login?return_to=%2Fd%2F' %></p>
+    <br>
+
+   <div>
      <% @illustrator.orders.each do |order| %>
      <%= attachment_image_tag order, :image, :fill, 400, 300, fallback: "no_image.jpg", size:'200x200'  %>
-    
      <%= link_to "詳細", order_path(order), class: 'btn btn-info' %>
      <%= link_to "編集", edit_order_path(order), class: 'btn btn-primary'%>
      <%= link_to "削除", order_path(order), method: :delete, class: 'btn btn-danger'%>
-        
-  <% end %>
+     <br>
+   </div>
+
+<% end %>
   <br>
   <br>
   <div>

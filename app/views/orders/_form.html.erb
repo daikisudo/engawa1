@@ -1,8 +1,10 @@
+
+              
 <%= form_with(model: order, local: true) do |form| %>
 <table>
   <% if order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+      <h2><%= pluralize(order.errors.count, "件のエラーがあります。") %> </h2>
 
       <ul>
       <% order.errors.full_messages.each do |message| %>
@@ -12,11 +14,27 @@
     </div>
   <% end %>
 
-  <div class="field pt-4 pb-3">
-    <%= form.label :タイトル %>
+  <br>
+  <br> 
+  
+ 
+  
+   <%= form.label :参考画像 %>
+  <%= form_for(@order, url: orders_path) do |f| %>
+  <%= form.attachment_field :image %>
+ </div>
+     </form>
+
+  <br>
+
+  <div class="field">
+
+    <%= form.label :タイトル %><span class="badge">必須</span>
     <br>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, size: 80 %>
   </div>
+
+  <br>
 
   <div class="field">
     <%= form.label :"金額(50000円以上を設定)" %>
@@ -24,29 +42,30 @@
     <%= form.text_field :amount %>
   </div>
 
+  <br>
+
   <div class="field">
-    <%= form.label :本文 %>
+    <%= form.label :説明文 %><span class="badge">必須</span>
     <br>
-    <%= form.text_area :caption %>
+    <%= form.text_area :caption, size: "83x10" %>
   </div>
 
-<div>
-  <%= form_for(@order, url: orders_path) do |f| %>
-</div>
+<br>
 
-<div>
- <%= form.attachment_field :image %>
-</div>
+
 
 <div>
   <%= form.hidden_field :illustrator_id, :value => current_illustrator.id %>
 </div>
-<% end %>
+
+
+
   <br>
+  
   <div class="actions">
     <%= form.submit "保存", class: "btn btn-primary"%>
-
-    
   </div>
 </table>
+
+<% end %>
 <% end %>

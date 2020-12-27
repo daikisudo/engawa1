@@ -3,10 +3,7 @@ class Order < ApplicationRecord
   attachment :image
 
 validates :name, presence: true
-validates :amount, numericality: {only_integer: true, greater_than: 50000}
+validates :amount, numericality: {only_integer: true, greater_than: 49999}
 validates :caption, presence: true
-
-
 end
 
- 

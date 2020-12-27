@@ -1,40 +1,72 @@
+<section class="slice sct-color-1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+
+<div class="row">
+          <div class="col-md-6 col-md-offset-3 post_image_form">
+            <div class="section-title-wrapper style-1 v1">  
+
+<div class="text-center pt-5">
+
 <h2>新規登録</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "companies/shared/error_messages", resource: resource %>
+<div>
+<%= form_with(model: @company, local: true) do |form| %>
+<table>
+  <% if @company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@company.errors.count, "件のエラーがあります。") %> </h2>
+      <div class="ul-align-center">
+      <ul>
+      <% @company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+     </div>
+     </div>
+   <% end %>
 
+</div>
   <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= form.label :メールアドレス %><br />
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+<div class="field">
+    <%= form.label "ハンドルネーム"%><br />
+    <%= form.text_field :company_name, autofocus: true, autocomplete:"name" %>
   </div>
 
   <div class="field">
-    <%= f.label "企業名"%><br />
-    <%= f.text_field :company_name, autofocus: true, autocomplete:"company_name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "担当者名"%><br />
-    <%= f.text_field :name, autofocus: true, autocomplete:"name" %>
+    <%= form.label "本名"%><br />
+    <%= form.text_field :name, autofocus: true, autocomplete:"name" %>
   </div>
 
   
   <div class="field">
-    <%= f.label :パスワード %>
+    <%= form.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= form.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :確認 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= form.label :確認 %><br />
+    <%= form.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "新規登録" %>
+    <%= form.submit "新規登録" %>
   </div>
 <% end %>
+</table>
+<br>
 
 <%= render "companies/shared/links" %>
+
+<br>
+
+<%= link_to 'トップページに戻る', root_path %>
