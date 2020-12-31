@@ -15,12 +15,12 @@
   <br>
   <br>
   <div>
-  <h4><%= current_illustrator.illustrator_name %>でログイン中</h4>
+  <h5><%= current_illustrator.illustrator_name %>でログイン中</h5>
   </div>
 
   <% elsif company_signed_in? %>
 <div>
-<h4><%= current_company.company_name %>でログイン中</h4>
+<h5><%= current_company.company_name %>でログイン中</h5>
 </div>
   <% else %>
   <% end %>
@@ -72,6 +72,8 @@
   <%= attachment_image_tag order, :image, :fill, 250, 250, fallback: "no_image.jpg", size:'250x250' %>
 </div>
 <% end %>
-
 <% end %>
 
+<div class="footer">
+<%= paginate @orders %>
+</div>
