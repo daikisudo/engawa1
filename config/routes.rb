@@ -8,6 +8,7 @@ Rails.application.routes.draw do
  get "about" => "top#about"
  get "destroy" => "order#destroy"
 
+
  resources :orders, only: [:new, :create, :index, :show, :edit, :update, :destroy, :pay]
  
 

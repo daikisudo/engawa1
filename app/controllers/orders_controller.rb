@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
 
   before_action :set_order, only: [:show, :edit, :update, :destroy]
 
-
+  protect_from_forgery except: :update
 
   def pay
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
@@ -36,6 +36,7 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @order = Order.find(params[:id])
   end
 
 
