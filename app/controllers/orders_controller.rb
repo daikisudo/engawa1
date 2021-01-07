@@ -47,7 +47,7 @@ class OrdersController < ApplicationController
    respond_to do |format|
     if @order.save
       format.html { redirect_to @order, notice: '依頼の投稿が完了しました。'}
-      format.json { render :show, status: :created, location: @order }
+      format.json { render :show, status: :created, location: @order}
       
     else
       format.html { render :new }

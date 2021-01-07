@@ -38,9 +38,9 @@
 
 
 
-  <%= link_to "マイページ", illustrator_path(id: current_illustrator), class: 'btn btn-primary' %>
-  <%= link_to "利用案内",about_path, class: 'btn btn-primary' %>
-  <%= link_to "ログアウト", destroy_illustrator_session_path ,:method => :delete, class: 'btn btn-danger' %>
+  <%= link_to "マイページ", illustrator_path(id: current_illustrator), class: "glyphicon glyphicon-user" %></a>
+  <%= link_to "About",about_path, class:"glyphicon glyphicon-comment" %>
+  <%= link_to "ログアウト", destroy_illustrator_session_path ,:method => :delete, class:"glyphicon glyphicon-log-out" %>
 
 
 <% elsif company_signed_in? %>

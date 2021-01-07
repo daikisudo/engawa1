@@ -18,12 +18,25 @@
   <br> 
   
  
-  
-   <%= form.label :参考画像 %>
+</form>
+
+ <div>
+  <%= form.label :参考画像 %>
   <%= form_for(@order, url: orders_path) do |f| %>
-  <%= form.attachment_field :image %>
+
  </div>
-     </form>
+
+ <div class="form-group has-icon">
+  <div class="user-edit-image">
+    <%= attachment_image_tag @order, :image, :fill, 60, 60, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+</div>
+  <label class="control-label sr-only" for="inputEmail">プロフィール画像</label>
+<br>
+
+
+
+  <%= f.attachment_field :image, placeholder: "プロフィール画像", class: "user-edit-form" %>
+    
 
   <br>
 

@@ -1,8 +1,22 @@
+
+<head>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+</head>
+<body>
 <h1>マイページ</h1>
 
 <div class="profile-container">
 <h3 class="profile-name"><%= @illustrator.illustrator_name %>様</h3>
 </div>
+
+
 
 <div>
 <%= attachment_image_tag @illustrator, :profile_image, :fill, 80, 80, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg", size:'80x80' %> 
@@ -11,12 +25,14 @@
 
 <% if illustrator_signed_in? && current_illustrator.id %>
    
-    <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator), class: 'btn btn-primary'%></p>
-    <p><%= link_to "新規依頼作成", new_order_path, class: 'btn btn-success' %></p>
+    <p><%= link_to "プロフィール編集", edit_illustrator_path(@illustrator), class:"glyphicon glyphicon-wrench"%></p>
+    <p><%= link_to "新規依頼作成", new_order_path, class:"glyphicon glyphicon-file" %></p>
     <p><%= link_to "売上管理(PAY.JPへ移動)", 'https://pay.jp/login?return_to=%2Fd%2F' %></p>
     <br>
 
    <div>
+   </nav>
+</body>   
      <% @illustrator.orders.each do |order| %>
      <%= attachment_image_tag order, :image, :fill, 400, 300, fallback: "no_image.jpg", size:'200x200'  %>
      <%= link_to "詳細", order_path(order), class: 'btn btn-info' %>
@@ -30,7 +46,7 @@
   <br>
   <div>
     <%= link_to "退会はこちら", withdrawl_illustrator_path(@illustrator.id), method: :patch, class: 'btn btn-danger' %>
-    <p><%= link_to "TOP", root_path, class: 'btn btn-default' %></p>
+    <p><%= link_to "TOP", root_path, class: "glyphicon glyphicon-home" %></p>
    </div>
 
   <% elsif company_signed_in? && current_company.id%>
@@ -38,6 +54,6 @@
      <%= link_to "TOP", root_path, class: 'btn btn-default' %>
        依頼を申し込む
   <% else %>
-     <%= link_to "TOP", root_path, class: 'btn btn-default' %>
+     <%= link_to "TOP", root_path, class: "glyphicon glyphicon-home" %>
 
 <% end %>

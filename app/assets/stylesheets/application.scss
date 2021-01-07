@@ -163,10 +163,7 @@ main {
     padding-bottom: .5em;
     border-bottom: 1px solid #ccc;
   }
-  h4:first-letter {
-    margin-right: .1em;
-    font-size: 1.5em;
-  }
+ 
   
   h6 {
     padding: .5em .75em;
@@ -179,4 +176,13 @@ main {
     bottom: 0;
     width: 100%;
     text-align: center
+}
+
+.alert {
+  color:green;
+
+}
+
+.redalert{
+  color:red;
 }

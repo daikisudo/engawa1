@@ -10,7 +10,7 @@
 </div>
 
 <% if @company.id == current_company.id %>
-    <p><%= link_to "プロフィール編集", edit_company_path(@company), class: 'btn btn-primary' %></p>
+    <p><%= link_to "プロフィール編集", edit_company_path(@company), class:"glyphicon glyphicon-wrench" %></p>
    
 <div class="withdrawl">
     <%= link_to "退会はこちら", withdrawl_company_path(@company.id), method: :patch, class: 'btn btn-danger' %>

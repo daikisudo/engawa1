@@ -10,7 +10,16 @@
           <div class="col-md-6 col-md-offset-3 post_image_form">
             <div class="section-title-wrapper style-1 v1">  
 
+<script src="https://kit.fontawesome.com/18c22e2dce.js" crossorigin="anonymous"></script>
+
+
+
 <div>
+<br>
+<p class="text-center pt-5 alert" id="notice">
+ <%=  notice %> 
+</p>
+
 	<h2 class="text-center pt-5">投稿の詳細</h2>
   
   <br>
@@ -47,8 +56,8 @@
 
 <p class="text-center pt-5">
 <%= link_to '編集', edit_order_path(@order), class: 'btn btn-primary' %> |
-<%= link_to 'トップページへ', root_path %>|
-<%= link_to 'Twitterで共有', "https://twitter.com/share?url=#{request.url} engawaにて依頼を受付中です", title: 'Twitter', target: '_blank' %>
+<%= link_to 'トップ', root_path, class:"glyphicon glyphicon-home" %>|
+<%= link_to 'Twitterで共有', "https://twitter.com/share?url=#{request.url} engawaにて依頼を受付中です", title: 'Twitter', target: '_blank' ,class:"fab fa-twitter" %>
 </p>
 
 
@@ -70,7 +79,7 @@
 
 <br>
 
-<%= link_to 'トップページへ戻る', root_path %>
+<%= link_to 'トップ', root_path, class:"glyphicon glyphicon-home" %>
 
 </div>
 
